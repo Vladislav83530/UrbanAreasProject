@@ -1,0 +1,109 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="~/style/search.css">
+</head>
+<body>
+    <div>
+        <div class="intro">
+            <div class="container">
+                <div class="intro__inner">
+                    <h2 class="intro__suptitle">GO</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_">
+            <div class="left_container">
+                <div class="block_form_foroneitem">
+                    <h3>City By Name</h3>
+                    <div class="form_container_foroneitem">
+                        <form method="get" action="~/Cities/CityByName?namePrefix={namePrefix}">
+                            <div class="dws-input">
+                                <input type="text" name="namePrefix" id="namePrefix" placeholder="City name" required>
+
+                            </div>
+                            <button class="dws-submit" type="submit">Search</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="block_form_fortwoitem">
+                    <h3>City By Name and Coutry wikiID</h3>
+                    <div class="form_container_fortwoitem">
+                        <form method="get" action="~/Cities/CityByNameAndCountry?namePrefix={namePrefixCity}&nameCountryId={nameCountryId}">
+                            <div class="dws-input">
+                                <input type="text" name="namePrefixCity" id="namePrefixCity" placeholder="City name" required>
+                                <input type="text" name="nameCountryId" id="nameCountryId" placeholder="Country WikiID" required>
+                            </div>
+                            <button class="dws-submit" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="block_form_foroneitem">
+                    <h3>Country By Name</h3>
+                    <div class="form_container_foroneitem">
+                        <form method="get" action="~/Countries/CountryByName?nameCountryPrefix={nameCountryPrefix}">
+                            <div class="dws-input">
+                                <input type="text" name="nameCountryPrefix" id="nameCountryPrefix" placeholder="Country name" required>
+
+                            </div>
+                            <button class="dws-submit" type="submit">Search</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="block_form_fortwoitem">
+                    <h3>City Near City</h3>
+                    <div class="form_container_fortwoitem">
+                        <form method="get" action="~/Cities/CityNearCity?cityId={cityId}&radius={radius}">
+                            <div class="dws-input">
+                                <input type="text" name="cityId" id="cityId" placeholder="City WikiID" required>
+                                <input type="text" name="radius" id="radius" placeholder="Radius" required>
+                            </div>
+                            <button class="dws-submit" type="submit">Search</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="block_form_fortwoitem">
+                    <h3>City By Location</h3>
+                    <div class="form_container_fortwoitem">
+                        <form method="get" action="~/Cities/CityByLocation">
+                            <div class="dws-input">
+                                <input type="text" name="latitude" id="latitude" placeholder="Latitude" required>
+                                <input type="text" name="longitude" id="longitude" placeholder="Longitude" required>
+                            </div>
+                            <button class="dws-submit" type="submit">Search</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="block_form_foroneitem">
+                    <h3>City By Your Geolocation</h3>
+                    <div class="form_container_foroneitem">
+                        <form method="get" action="~/Cities/CityByGeoLocation">
+                            <button class="dws-submit" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="right_container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

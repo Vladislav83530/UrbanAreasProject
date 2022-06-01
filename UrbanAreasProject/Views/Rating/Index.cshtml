@@ -1,0 +1,108 @@
+﻿
+@using UrbanAreasProject.ViewModels
+@model IndexViewModel
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="~/style/rating.css">
+</head>
+<body>
+    <div>
+        <div class="intro">
+            <div class="container">
+                <div class="intro__inner">
+                    <h2 class="intro__suptitle">Your ratings</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container_">
+            <div class="table_container">
+                <form method="get">
+                    <div class="form-inline">
+                        <label>City name: </label>
+                        <input name="name" value="@Model.FilterViewModel.SelectedCityName" class="form-control" />
+
+                        <label>Country name: </label>
+                        <input name="country" value="@Model.FilterViewModel.SelectedCountryName" class="form-control" />
+
+                        <label>Region name: </label>
+                        <input name="region" value="@Model.FilterViewModel.SelectedRegionName" class="form-control" />
+                        <input type="submit" value="Filter" class="dws-submit" />
+                    </div>
+                </form>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a asp-action="Index"
+                                   asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+                                   asp-route-name="@(Model.FilterViewModel.SelectedCityName)"
+                                   asp-route-country="@(Model.FilterViewModel.SelectedCountryName)"
+                                   asp-route-region="@(Model.FilterViewModel.SelectedRegionName)">Name ↑↓</a>
+                            </th>
+                            <th>Country</th>
+                            <th>Region</th>
+                            <th>
+                                <a asp-action="Index"
+                                   asp-route-sortOrder="@(Model.SortViewModel.PopulationSort)"
+                                   asp-route-name="@(Model.FilterViewModel.SelectedCityName)"
+                                   asp-route-country="@(Model.FilterViewModel.SelectedCountryName)"
+                                   asp-route-region="@(Model.FilterViewModel.SelectedRegionName)">Population ↑↓</a>
+                            </th>
+                            <th>
+                                Latitude
+                                <div>
+                                    <a class="sort-a" asp-action="Index"
+                                       asp-route-sortOrder="@(Model.SortViewModel.LatitudeSort)"
+                                       asp-route-name="@(Model.FilterViewModel.SelectedCityName)"
+                                       asp-route-country="@(Model.FilterViewModel.SelectedCountryName)"
+                                       asp-route-region="@(Model.FilterViewModel.SelectedRegionName)">More southern or northern ↑↓</a>
+                                </div>
+                            </th>
+                            <th>
+                                Longitude
+                                <div>
+                                    <a class="sort-a" asp-action="Index"
+                                       asp-route-sortOrder="@(Model.SortViewModel.LongitudeSort)"
+                                       asp-route-name="@(Model.FilterViewModel.SelectedCityName)"
+                                       asp-route-country="@(Model.FilterViewModel.SelectedCountryName)"
+                                       asp-route-region="@(Model.FilterViewModel.SelectedRegionName)">More eastern or western ⇆</a>
+                                </div>
+                            </th>
+                            <th>
+                                <form>
+                                    <input method="get" asp-action="create" asp-controller="rating" type="submit" value="Create city" class="dws-submit_create" />
+                                </form>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Cities)
+                        {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Country</td>
+                            <td>@item.Region</td>
+                            <td>@item.Population</td>
+                            <td>@item.Latitude</td>
+                            <td>@item.Longitude</td>
+                            <td>
+                                <a asp-action="Edit" asp-controller="Rating" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Delete" asp-controller="Rating" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

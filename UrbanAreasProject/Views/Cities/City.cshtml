@@ -1,0 +1,64 @@
+﻿@using UrbanAreasProject.Models
+@model IEnumerable<DataCity>
+@{
+    Layout = "~/Views/_Layout.cshtml";
+    Layout = "~/Views/Search.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="~/style/search.css">
+    <link rel="stylesheet" href="~/style/city.css">
+</head>
+<body>
+    <div class="content">
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+        <div class="info">
+            <div class="info__item">
+                <div class="descript">
+                    <div class="descript__item" data-collapse="#wedo_1">
+                        <div class="descript__header">
+                            <div class="descript__title"><b>@item.Name</b></div>
+                            <div class="descript__title"><b>@item.Country</b></div>
+                        </div>
+                        <div class="descript__content">
+                            <p><b>Country: </b> @item.Country</p>
+                            <p><b>Region: </b> @item.Region</p>
+                            <p><b>Population: </b> @item.Population</p>
+                            <p><b>WikiDataId: </b> @item.WikiDataId</p>
+                            <p><b>Latitude: </b>@item.Latitude</p>
+                            <p><b>Longitude: </b>@item.Longitude</p>
+                            @{ string coord = $"{item.Latitude} {item.Longitude}";}
+                            <div style="width:500px;position: center;">
+                                <iframe width="500" height="300" src="https://maps.google.com/maps?width=100&amp;height=100&amp;hl=en&amp;q=@coord&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                </iframe>
+                            </div><br />
+                        </div>
+                    </div>                  
+                    <form asp-action="add" asp-controller="rating">
+                        <input style="display: none" type="number" name="Id" value="@item.Id" />
+                        <input style="display: none" type="text" name="Name" value="@item.Name" />
+                        <input style="display: none" type="text" name="Country" value="@item.Country" />
+                        <input style="display: none" type="text" name="Region" value="@item.Region" />
+                        <input style="display: none" type="number" name="Population" value="@item.Population" />
+                        <input style="display: none" type="text" name="Latitude" value="@item.Latitude" />
+                        <input style="display: none" type="text" name="Longitude" value="@item.Longitude" />
+                        <input class="dws-submit" type="submit" value="Add" />
+                    </form>
+                </div>
+            </div>         
+        </div>
+            }
+        }
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/script/app.js"></script>
+</body>
+</html>

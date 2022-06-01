@@ -1,0 +1,39 @@
+﻿@model UrbanAreasProject.ViewModels.LoginViewModel
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Form</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/style/login.css">
+</head>
+<body>
+    <div class="bg_container">
+        <div id="container_reg">
+            <h1>Log in</h1>
+            <form method="post" asp-controller="Account" asp-action="Login"
+                  asp-route-returnUrl="@Model.ReturnUrl" id="reg">
+                <div class="valid" asp-validation-summary="ModelOnly"></div>
+                <div>
+                    <input asp-for="UserName" placeholder="User Name">
+                    <span class="valid" asp-validation-for="UserName"></span>
+                </div>
+                <div>
+                    <input asp-for="Password" placeholder="Password">
+                    <span class="valid" asp-validation-for="Password"></span>
+                </div>
+                <input type="submit" value="Log in" />
+            </form>
+            <div id="remember-container">
+                <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked" asp-for="RememberMe" />
+                <span id="remember">Remember me</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

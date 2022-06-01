@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="~/style/home.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+</head>
+<body>
+    <div class="intro">
+        <div class="container">
+            <div class="intro__inner">
+                <h2 class="intro__suptitle">Your Best API</h2>
+                <h1 class="intro__title">Welcome to City-API</h1>
+                <a class="btn" href="#" data-scroll="#services">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section__header">
+                <h3 class="section__suptitle">You can</h3>
+                <h2 class="section__title">Do Your Search</h2>
+            </div>
+            <div class="services">
+                <div class="services__item  services__item--border">
+                    <img class="services__icon" src="~/images/services/bycityname.png" alt="">
+                    <div class="services__title">Cities by city name</div>
+                    <div class="services__text">You can find a city by its name or part of its name. As a result, you will get all the cities with this name or similar to what you entered.</div>
+                </div>
+                <div class="services__item  services__item--border">
+                    <img class="services__icon" src="~/images/services/bynameandwikiId.png" alt="">
+                    <div class="services__title">By city name and country Id</div>
+                    <div class="services__text">You can find the city by its name and the wikiID of the country in which the country is located.</div>
+                </div>
+                <div class="services__item  services__item--border">
+                    <img class="services__icon" src="~/images/services/countries.png" alt="">
+                    <div class="services__title">Country by country name</div>
+                    <div class="services__text">You can find a country by its name or part of its name. As a result, you will get all the countries with this name or similar to what you entered.</div>
+                </div>
+                <div class="services__item">
+                    <img class="services__icon" src="~/images/services/city.png" alt="">
+                    <div class="services__title">Cities near city</div>
+                    <div class="services__text">Allows you to find all the cities around the city you enter. You can also adjust the search radius of cities.</div>
+                </div>
+                <div class="services__item">
+                    <img class="services__icon" src="~/images/services/location.png" alt="">
+                    <div class="services__title">Cities by location</div>
+                    <div class="services__text">You can find the city by simply entering its coordinates.</div>
+                </div>
+                <div class="services__item">
+                    <img class="services__icon" src="~/images/services/placeholder.png" alt="">
+                    <div class="services__title">City by geolocation</div>
+                    <div class="services__text">Just press the button and you will find out which city you are in and all the information about this city.</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <h2 class="table_title">About Rating Cities</h2>
+    <div class="section  section--gray">
+        <div class="container">
+            <div class="functions">
+                <div data-slider>
+                    <div>
+                        <div class="functions__item">
+                            <img class="functions__photo" src="~/images/home1.png" alt="">
+                            <div class="functions__text">You can add cities to your own database and filter them by: city name, country name, or region name. Everything is very convenient and simple</div>
+                            <div class="functions__author">Filtration</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="functions__item">
+                            <img class="functions__photo" src="~/images/home2.png" alt="">
+                            <div class="functions__text">In your own database you can also sort cities by name in alphabetical order or vice versa, by population (from larger to smaller or vice versa), find the easternmost or westernmost city, as well as the northernmost or southernmost</div>
+                            <div class="functions__author">Sorting</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="functions__item">
+                            <img class="functions__photo" src="~/images/home3.png" alt="">
+                            <div class="functions__text">You can create your own city to compare with others or if you haven't found it in search. You can also change the myth information in your table for comparison. And of course remove the city from the table</div>
+                            <div class="functions__author">Create, edit and delete</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <section class="section" id="photos">
+        <h2 class="table_title">TRY IT</h2>
+
+        <div class="photos">
+            <div class="photos__col">
+                <div class="photos__item">
+                    <img class="photos__image" src="~/images/photos/1.jpg" alt="">
+                </div>
+                <div class="photos__item">
+                    <img class="photos__image" src="~/images/photos/2.jpg" alt="">
+                </div>
+            </div>
+            <div class="photos__col">
+                <div class="photos__item">
+                    <img class="photos__image" src="~/images/photos/3.jpg" alt="">
+                </div>
+                <div class="photos__item">
+                    <img class="photos__image" src="~/images/photos/4.jpg" alt="">
+                </div>
+            </div>
+            <div class="photos__col">
+                <div class="photos__item">
+                    <img class="photos__image" src="~/images/photos/5.jpg" alt="">
+                </div>
+            </div>
+            <div class="photos__col">
+                <div class="photos__item">
+                    <img class="photos__image" src="~/images/photos/6.jpg" alt="">
+                </div>
+                <div class="photos__item">
+                    <img class="photos__image" src="~/images/photos/7.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="~/script/home.js"></script>
+</body>
+</html>

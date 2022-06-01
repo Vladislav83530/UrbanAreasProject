@@ -1,0 +1,109 @@
+﻿/* Intro */
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient( rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5) ), url('../images/intro_city.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top;
+}
+
+.intro__inner {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro__suptitle {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 200px;
+    color: #fff;
+}
+
+.left_container {
+    width: 600px;
+    flex-grow: 1;
+}
+
+.right_container {
+    width: 600px;
+    flex-grow: 1;
+}
+
+.container_ {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+/*form style*/
+input[type="text"] {
+    float: left;
+    width: 220px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 4px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.dws-submit {
+    float: right;
+    padding: 4px 60px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #5f6adc;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.block_form_foroneitem {
+    background-color: rgba(199, 199, 199, 0.5);
+    width: 480px;
+    height: 90px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.block_form_fortwoitem {
+    background-color: rgba(199, 199, 199, 0.5);
+    width: 480px;
+    height: 130px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.form_container_foroneitem {
+    width: 450px;
+    height: 50px;
+    background-color: #052771;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 15px;
+}
+
+.form_container_fortwoitem {
+    width: 450px;
+    height: 90px;
+    background-color: #052771;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 15px;
+}
