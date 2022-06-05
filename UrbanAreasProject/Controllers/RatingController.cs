@@ -119,7 +119,7 @@ namespace UrbanAreasProject.Controllers
             if (curuser.RatingCities != null)
                 cities = JsonSerializer.Deserialize<List<DataCity>>(curuser.RatingCities);
 
-            
+
             cities.Add(city);
             curuser.RatingCities = JsonSerializer.Serialize(cities);
             await db.SaveChangesAsync();
@@ -148,7 +148,7 @@ namespace UrbanAreasProject.Controllers
             User curuser = await db.Users.FirstOrDefaultAsync(user => user.UserName == User.Identity.Name);
             if (curuser.RatingCities != null)
                 cities = JsonSerializer.Deserialize<List<DataCity>>(curuser.RatingCities);
-            
+
             foreach (var item in cities)
             {
                 while (city.Id == item.Id)
