@@ -18,17 +18,18 @@
     <div class="content">
         @if (Model != null)
         {
-            @foreach (var item in Model)
+        @foreach (var item in Model)
             {
         <div class="info">
             <div class="info__item">
                 <div class="descript">
-                    <div class="descript__item" data-collapse="#wedo_1">
-                        <div class="descript__header">
+                    <div class="accordionItem close" >
+                        <div class="accordionItemHeading">                         
+                            <img style="width: 65px; height:40px; float:left; padding-right:5px" src="https://countryflagsapi.com/png/@item.CountryCode" alt="@item.CountryCode flag " />
                             <div class="descript__title"><b>@item.Name</b></div>
                             <div class="descript__title"><b>@item.Country</b></div>
                         </div>
-                        <div class="descript__content">
+                        <div class="accordionItemContent">
                             <p><b>Country: </b> @item.Country</p>
                             <p><b>Region: </b> @item.Region</p>
                             <p><b>Population: </b> @item.Population</p>
@@ -41,7 +42,7 @@
                                 </iframe>
                             </div><br />
                         </div>
-                    </div>                  
+                    </div>
                     <form asp-action="add" asp-controller="rating">
                         <input style="display: none" type="number" name="Id" value="@item.Id" />
                         <input style="display: none" type="text" name="Name" value="@item.Name" />
@@ -53,7 +54,7 @@
                         <input class="dws-submit" type="submit" value="Add" />
                     </form>
                 </div>
-            </div>         
+            </div>
         </div>
             }
         }

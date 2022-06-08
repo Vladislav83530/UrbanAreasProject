@@ -37,12 +37,12 @@
                 </div>
 
                 <div class="block_form_fortwoitem">
-                    <h3>City By Name and Coutry wikiID</h3>
+                    <h3>City By Name and Coutry Name</h3>
                     <div class="form_container_fortwoitem">
-                        <form method="get" action="~/Cities/CityByNameAndCountry?namePrefix={namePrefixCity}&nameCountryId={nameCountryId}">
+                        <form method="get" action="~/Cities/CityByNameAndCountry?namePrefix={namePrefixCity}&nameCountryPrefix={nameCountryPrefix}">
                             <div class="dws-input">
                                 <input type="text" name="namePrefixCity" id="namePrefixCity" placeholder="City name" required>
-                                <input type="text" name="nameCountryId" id="nameCountryId" placeholder="Country WikiID" required>
+                                <input type="text" name="nameCountryPrefix" id="nameCountryPrefix" placeholder="Country name" required>
                             </div>
                             <button class="dws-submit" type="submit">Search</button>
                         </form>
@@ -69,10 +69,9 @@
                         <form method="get" action="~/Cities/CityNearCity?cityId={cityId}&radius={radius}">
                             <div class="dws-input">
                                 <input type="text" name="cityId" id="cityId" placeholder="City WikiID" required>
-                                <input type="text" name="radius" id="radius" placeholder="Radius" required>
+                                <input type="number" name="radius" id="radius" placeholder="Radius" required>
                             </div>
                             <button class="dws-submit" type="submit">Search</button>
-
                         </form>
                     </div>
                 </div>
@@ -90,7 +89,6 @@
                         </form>
                     </div>
                 </div>
-
                 <div class="block_form_foroneitem">
                     <h3>City By Your Geolocation</h3>
                     <div class="form_container_foroneitem">

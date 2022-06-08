@@ -24,22 +24,24 @@ namespace UrbanAreasProject.Clients
             _client = new HttpClient();
             _request = new HttpRequestMessage()
             {
-                Headers = { { "X-RapidAPI-Key", _apikey } }
+                Headers = { { "X-RapidAPI-Key", _apikey }}
             };
         }
-
+     
         /// <summary>
         /// Search city by geolocation
         /// </summary>
-        /// <returns>Information about city</returns>
-        public async Task<CityGeoLocation> GetCityGeoLocationAsync()
-        {
-            _request.RequestUri = new Uri(_address + $"/ip/check?format=json&language=en");
+        /// <returns>Information about city</returns>  
+        public async Task<CityGeoLocation> GetCityGeoLocationAsync(string ip)
+        {          
+            _request.RequestUri = new Uri(_address + $"/ip/{ip}?format=json");
             var response = await _client.SendAsync(_request);
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<CityGeoLocation>(content);
-            return result;
+            if (result.City.Name!=null)
+                return result;       
+            return null;
         }
     }
 }

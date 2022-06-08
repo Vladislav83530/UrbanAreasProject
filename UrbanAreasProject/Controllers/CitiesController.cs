@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using UrbanAreasProject.Clients;
+
 
 namespace UrbanAreasProject.Controllers
 {
@@ -13,10 +15,13 @@ namespace UrbanAreasProject.Controllers
     {
         private readonly GeoDBCitiesClient _cityClient;
         private readonly IPGeoLocationClient _geoLocationClient;
-        public CitiesController(GeoDBCitiesClient cityClient, IPGeoLocationClient geoLocationClient)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public CitiesController(GeoDBCitiesClient cityClient, IPGeoLocationClient geoLocationClient, IHttpContextAccessor httpContextAccessor)
         {
             _cityClient = cityClient;
             _geoLocationClient = geoLocationClient;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         /// <summary>
@@ -39,9 +44,11 @@ namespace UrbanAreasProject.Controllers
         /// <returns>View with information about cities near some city</returns>
         [HttpGet("citynearcity")]
         [Route("/[controller]/CityNearCity")]
-        public async Task<IActionResult> GetCityNearCity(string cityId, string radius)
+        public async Task<IActionResult> GetCityNearCity(string cityId, int radius)
         {
             var cities = await _cityClient.GetCityNearCityAsync(cityId, radius);
+            if (cities == null)
+                return View("City");
             var result = cities.Data;
             return View("City", result); ;
         }
@@ -54,9 +61,11 @@ namespace UrbanAreasProject.Controllers
         /// <returns>View with information about cities</returns>
         [HttpGet("countryid")]
         [Route("/[controller]/CityByNameAndCountry")]
-        public async Task<IActionResult> GetCityUsedCuntry(string namePrefixCity, string nameCountryId)
+        public async Task<IActionResult> GetCityUsedCuntry(string namePrefixCity, string nameCountryPrefix)
         {
-            var cities = await _cityClient.GetCityUsedCountryAsync(namePrefixCity, nameCountryId);
+            var cities = await _cityClient.GetCityUsedCountryAsync(namePrefixCity, nameCountryPrefix);
+            if (cities==null)
+                return View("City");           
             var result = cities.Data;
             return View("City", result); ;
         }
@@ -86,6 +95,8 @@ namespace UrbanAreasProject.Controllers
         public async Task<IActionResult> GetCityByLocation(string latitude, string longitude)
         {
             var cities = await _cityClient.GetCityByLocationAsync(latitude, longitude);
+            if (cities == null)
+                return View("City");
             var result = cities.Data;
             return View("City", result);
         }
@@ -98,7 +109,10 @@ namespace UrbanAreasProject.Controllers
         [Route("/[controller]/CityByGeoLocation")]
         public async Task<IActionResult> GetCityByGeoLocation()
         {
-            var cities = await _geoLocationClient.GetCityGeoLocationAsync();
+            string ip = _httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString();
+            var cities = await _geoLocationClient.GetCityGeoLocationAsync(ip);
+            if (cities == null)
+                return View("City");
             return View("CityGeo", cities);
         }
     }

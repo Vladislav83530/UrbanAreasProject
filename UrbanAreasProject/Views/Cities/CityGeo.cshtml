@@ -16,31 +16,34 @@
 <body>
     <div class="content">
         @if (Model != null)
-        {         
-                <div class="info">
-                    <div class="info__item">
-                        <div class="descript">
-                            <div class="descript__item" data-collapse="#wedo_1">
-                                <div class="descript__header">
-                                    <div class="descript__title"><b>@Model.City.Name</b></div>                          
-                                </div>
-                                <div class="descript__content">                                
-                                    <p><b>Continent: </b>@Model.Continent.Name</p>
-                                    <p><b>Population: </b>@Model.City.Population</p>
-                                    <p><b>Postcode: </b>@Model.Postcode</p>
-                                    <p><b>Latitude: </b>@Model.Location.Latitude</p>
-                                    <p><b>Longitude: </b>@Model.Location.Longitude</p>
-                                    @{ string coord = $"{Model.Location.Latitude} {Model.Location.Longitude}";}
-                                    <div style="width:500px;position: center;">
-                                        <iframe width="500" height="300" src="https://maps.google.com/maps?width=100&amp;height=100&amp;hl=en&amp;q=@coord&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                                        </iframe>
-                                    </div><br />
-                                </div>
-                            </div>
+        {
+        <div class="info">
+            <div class="info__item">
+                <div class="descript">
+                    <div class="accordionItem close">
+                        <div class="accordionItemHeading">
+                            <img style="width: 65px; height: 40px; float: left; padding-right: 5px" src="https://countryflagsapi.com/png/@Model.Country.Code" alt="@Model.City.Name flag " />
+                            <div class="descript__title"><b>@Model.City.Name</b></div>
+                            <div class="descript__title"><b>@Model.Country.Name</b></div>
+                        </div>
+                        <div class="accordionItemContent">
+                            <p><b>Continent: </b>@Model.Continent.Name</p>
+                            <p><b>Population: </b>@Model.City.Population</p>
+                            <p><b>Postcode: </b>@Model.Postcode</p>
+                            <p><b>Latitude: </b>@Model.Location.Latitude</p>
+                            <p><b>Longitude: </b>@Model.Location.Longitude</p>
+                            @{ string coord = $"{Model.Location.Latitude} {Model.Location.Longitude}";}
+                            <div style="width:500px;position: center;">
+                                <iframe width="500" height="300" src="https://maps.google.com/maps?width=100&amp;height=100&amp;hl=en&amp;q=@coord&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                </iframe>
+                            </div><br />
                         </div>
                     </div>
                 </div>
-            }      
+            </div>
+        </div>
+        }
+
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="~/script/app.js"></script>

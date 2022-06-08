@@ -1,5 +1,5 @@
 ﻿@using UrbanAreasProject.Models
-@model Country
+@model CountryDetails
 @{
     Layout = "~/Views/_Layout.cshtml";
     Layout = "~/Views/Search.cshtml";
@@ -15,26 +15,49 @@
 </head>
 <body>
     <div class="content">
-        @if (Model.Data != null)
+        @if (Model != null)
         {
-            @foreach (var item in Model?.Data)
-            {
-                <div class="info">
-                    <div class="info__item">
-                        <div class="descript">
-                            <div class="descript__item" data-collapse="#wedo_1">
-                                <div class="descript__header">
-                                    <div class="descript__title"><b>@item.Name</b></div>
+
+            <div class="info">
+                <div class="info__item">
+                    <div class="descript">
+                        <div class="accordionItem close">
+                            <div class="accordionItemHeading">
+                                <div class="descript__title_country">
+                                    <img style="width: 54px; height:36px; padding-right:2px" src="https://countryflagsapi.com/png/@Model.Data.Code" alt="@Model.Data.Code flag " />
+                                    <b>@Model.Data.Name</b>
                                 </div>
-                                <div class="descript__content">
-                                    <p><b>Code: </b> @item.Code</p>
-                                    <p><b>WikiID: </b> @item.WikiDataId</p>
-                                </div>
+                            </div>
+                            <div class="accordionItemContent">
+                                <p><b>Capital: </b> @Model.Data.Capital</p>
+                                <p><b>Number of Regions: </b> @Model.Data.NumRegions</p>
+                                <p><b>Code: </b> @Model.Data.Code</p>
+                                <p>
+                                    <b>Currency Code:</b>
+                                    @foreach (var item in Model.Data.CurrencyCodes)
+                                    {
+                                        string res = item + " ";
+                                        @res
+                                    }
+                                </p>
+                                <p><b>PhoneCode: </b> @Model.Data.CallingCode</p>
+                                <p><b>WikiID: </b> @Model.Data.WikiDataId</p>
+
+                                <img src="https://countryflagsapi.com/png/@Model.Data.Name" alt="@Model.Data.Name flag " />
                             </div>
                         </div>
                     </div>
                 </div>
-            }
+            </div>
+
+        }
+        else
+        {
+            <div class="info">
+                <div class="info__item">
+                    <h5>Not Found</h5>
+                </div>
+            </div>
         }
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

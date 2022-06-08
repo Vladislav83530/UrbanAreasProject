@@ -8,9 +8,6 @@ namespace UrbanAreasProject.Models
     }
     public class DataCountry
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
         public string WikiDataId { get; set; }
-        public string Code { get; set; }
     }
 }
