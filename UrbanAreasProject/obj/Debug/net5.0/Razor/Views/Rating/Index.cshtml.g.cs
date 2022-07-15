@@ -35,7 +35,9 @@ using UrbanAreasProject.ViewModels;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5fa9b59932cbb01c1d7d1b356314045d4d8b163d", @"/Views/Rating/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1efb079b2394a8119c49901824be0d3093e7dccb", @"/Views/_ViewImports.cshtml")]
+    #nullable restore
     public class Views_Rating_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IndexViewModel>
+    #nullable disable
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/style/rating.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -91,9 +93,9 @@ using UrbanAreasProject.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d8930", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d8976", async() => {
                 WriteLiteral("\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Rating</title>\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d9335", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d9381", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -120,7 +122,7 @@ using UrbanAreasProject.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d11218", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d11264", async() => {
                 WriteLiteral(@"
     <div>
         <div class=""intro"">
@@ -133,7 +135,7 @@ using UrbanAreasProject.ViewModels;
         <div class=""container_"">
             <div class=""table_container"">
                 ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d11829", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d11875", async() => {
                     WriteLiteral("\r\n                    <div class=\"form-inline\">\r\n                        <label>City name: </label>\r\n                        <input name=\"name\"");
                     BeginWriteAttribute("value", " value=\"", 848, "\"", 895, 1);
 #nullable restore
@@ -181,7 +183,7 @@ WriteAttributeValue("", 1209, Model.FilterViewModel.SelectedRegionName, 1209, 41
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                <table class=\"table\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d15322", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d15368", async() => {
                     WriteLiteral("Name ↑↓");
                 }
                 );
@@ -245,7 +247,7 @@ WriteAttributeValue("", 1209, Model.FilterViewModel.SelectedRegionName, 1209, 41
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                            </th>\r\n                            <th>Country</th>\r\n                            <th>Region</th>\r\n                            <th>\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d20070", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d20116", async() => {
                     WriteLiteral("Population ↑↓");
                 }
                 );
@@ -309,7 +311,7 @@ WriteAttributeValue("", 1209, Model.FilterViewModel.SelectedRegionName, 1209, 41
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                            </th>\r\n                            <th>\r\n                                Latitude\r\n                                <div>\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d24824", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d24870", async() => {
                     WriteLiteral("More southern or northern ↑↓");
                 }
                 );
@@ -374,7 +376,7 @@ WriteAttributeValue("", 1209, Model.FilterViewModel.SelectedRegionName, 1209, 41
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </th>\r\n                            <th>\r\n                                Longitude\r\n                                <div>\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d29737", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d29783", async() => {
                     WriteLiteral("More eastern or western ⇆");
                 }
                 );
@@ -439,9 +441,9 @@ WriteAttributeValue("", 1209, Model.FilterViewModel.SelectedRegionName, 1209, 41
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </th>\r\n                            <th>\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d34558", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d34604", async() => {
                     WriteLiteral("\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d34861", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d34907", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper>();
@@ -533,7 +535,7 @@ WriteAttributeValue("", 1209, Model.FilterViewModel.SelectedRegionName, 1209, 41
 #line hidden
 #nullable disable
                 WriteLiteral("</td>\r\n                            <td>\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d39941", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d39987", async() => {
                     WriteLiteral("Edit");
                 }
                 );
@@ -566,7 +568,7 @@ WriteAttributeValue("", 1209, Model.FilterViewModel.SelectedRegionName, 1209, 41
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral(" |\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d42469", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fa9b59932cbb01c1d7d1b356314045d4d8b163d42515", async() => {
                     WriteLiteral("Delete");
                 }
                 );
@@ -621,16 +623,26 @@ WriteAttributeValue("", 1209, Model.FilterViewModel.SelectedRegionName, 1209, 41
             WriteLiteral("\r\n</html>\r\n\r\n");
         }
         #pragma warning restore 1998
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<IndexViewModel> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<IndexViewModel> Html { get; private set; } = default!;
+        #nullable disable
     }
 }
 #pragma warning restore 1591

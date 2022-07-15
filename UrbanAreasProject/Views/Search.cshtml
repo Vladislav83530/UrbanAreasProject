@@ -37,12 +37,12 @@
                 </div>
 
                 <div class="block_form_fortwoitem">
-                    <h3>City By Name and Coutry Name</h3>
+                    <h3>City By Name and Coutry WikiID</h3>
                     <div class="form_container_fortwoitem">
                         <form method="get" action="~/Cities/CityByNameAndCountry?namePrefix={namePrefixCity}&nameCountryPrefix={nameCountryPrefix}">
                             <div class="dws-input">
                                 <input type="text" name="namePrefixCity" id="namePrefixCity" placeholder="City name" required>
-                                <input type="text" name="nameCountryPrefix" id="nameCountryPrefix" placeholder="Country name" required>
+                                <input type="text" name="nameCountryPrefix" id="nameCountryPrefix" placeholder="Country wikiID" required>
                             </div>
                             <button class="dws-submit" type="submit">Search</button>
                         </form>
@@ -50,15 +50,13 @@
                 </div>
 
                 <div class="block_form_foroneitem">
-                    <h3>Country By Name</h3>
+                    <h3>Country By wikiID</h3>
                     <div class="form_container_foroneitem">
-                        <form method="get" action="~/Countries/CountryByName?nameCountryPrefix={nameCountryPrefix}">
+                        <form method="get" asp-action="GetCountry" asp-controller="Countries">
                             <div class="dws-input">
-                                <input type="text" name="nameCountryPrefix" id="nameCountryPrefix" placeholder="Country name" required>
-
+                                <input type="text" name="CountryWikiID" id="CountryWikiID" placeholder="Country wikiId" required>
                             </div>
                             <button class="dws-submit" type="submit">Search</button>
-
                         </form>
                     </div>
                 </div>

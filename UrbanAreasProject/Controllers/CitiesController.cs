@@ -61,9 +61,9 @@ namespace UrbanAreasProject.Controllers
         /// <returns>View with information about cities</returns>
         [HttpGet("countryid")]
         [Route("/[controller]/CityByNameAndCountry")]
-        public async Task<IActionResult> GetCityUsedCuntry(string namePrefixCity, string nameCountryPrefix)
+        public async Task<IActionResult> GetCityUsedCuntry(string namePrefixCity, string countryWikiID)
         {
-            var cities = await _cityClient.GetCityUsedCountryAsync(namePrefixCity, nameCountryPrefix);
+            var cities = await _cityClient.GetCityUsedCountryAsync(namePrefixCity, countryWikiID);
             if (cities==null)
                 return View("City");           
             var result = cities.Data;

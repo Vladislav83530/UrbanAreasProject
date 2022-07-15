@@ -17,15 +17,15 @@ namespace UrbanAreasProject.Controllers
         }
 
         /// <summary>
-        /// Search country by name
+        /// Search country by wikiId
         /// </summary>
         /// <param name="nameCountryPrefix"></param>
         /// <returns>View with information about country</returns>
         [HttpGet("nameCountry")]
         [Route("/[controller]/CountryByName")]
-        public async Task<IActionResult> GetCountry(string nameCountryPrefix)
+        public async Task<IActionResult> GetCountry(string CountryWikiID)
         {
-            var countries = await _cityClient.GetCountryAsync(nameCountryPrefix);
+            var countries = await _cityClient.GetCountryAsync(CountryWikiID);
             return View("Country", countries);
         }
     }

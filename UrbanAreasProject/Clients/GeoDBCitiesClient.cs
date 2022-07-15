@@ -17,7 +17,7 @@ namespace UrbanAreasProject.Clients
         private static string _address;
         private static string _apikey;
         private readonly HttpRequestMessage _request;
-        private readonly HttpRequestMessage _requestClone;
+
         public GeoDBCitiesClient()
         {
             _address = Constants.address;
@@ -28,11 +28,6 @@ namespace UrbanAreasProject.Clients
                 Headers = { { "X-RapidAPI-Key", _apikey }
               }
             };
-            _requestClone = new HttpRequestMessage()
-            {
-                Headers = { { "X-RapidAPI-Key", _apikey }
-               }
-            };
         }
 
         /// <summary>
@@ -40,21 +35,16 @@ namespace UrbanAreasProject.Clients
         /// </summary>
         /// <param name="nameCountryPrefix"></param>
         /// <returns>Information about countries</returns>
-        public async Task<CountryDetails> GetCountryAsync(string nameCountryPrefix)
+        public async Task<CountryDetails> GetCountryAsync(string countryWikiID)
         {
-            _request.RequestUri = new Uri(_address + $"/geo/countries?limit=100&namePrefix={nameCountryPrefix}");
+            _request.RequestUri = new Uri(_address + $"/geo/countries/{countryWikiID}");
             var response = await _client.SendAsync(_request);
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<Country>(content);
-            if (result.Data.Count != 0)
+            if (content != null)
             {
-                _requestClone.RequestUri = new Uri(_address + $"/geo/countries/{result.Data.FirstOrDefault().WikiDataId}");
-                var response1 = await _client.SendAsync(_requestClone);
-                response1.EnsureSuccessStatusCode();
-                var content1 = await response1.Content.ReadAsStringAsync();
-                var result1 = JsonConvert.DeserializeObject<CountryDetails>(content1);
-                return result1;
+                var result = JsonConvert.DeserializeObject<CountryDetails>(content);
+                return result;
             }
             return null;
         }
@@ -67,11 +57,11 @@ namespace UrbanAreasProject.Clients
         /// <returns>Infornation about cities</returns>
         public async Task<City> GetCityNearCityAsync(string cityId, int radius)
         {
-            _request.RequestUri = new Uri(_address + $"/geo/cities/{cityId}/nearbyCities?radius={radius}&limit=100&distanceUnit=KM&types=CITY");
+            _request.RequestUri = new Uri(_address + $"/geo/cities/{cityId}/nearbyCities?radius={radius}&limit=10&distanceUnit=KM&types=CITY");
             var response = await _client.SendAsync(_request);
             var content = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<City>(content);
-            if (result.Data!= null)
+            if (result.Data != null)
                 return result;
             return null;
         }
@@ -98,23 +88,14 @@ namespace UrbanAreasProject.Clients
         /// <param name="namePrefix"></param>
         /// <param name="nameCountryPrefix"></param>
         /// <returns>Information about cities</returns>
-        public async Task<City> GetCityUsedCountryAsync(string namePrefix, string nameCountryPrefix)
+        public async Task<City> GetCityUsedCountryAsync(string namePrefix, string CountryWikiID)
         {
-            _request.RequestUri = new Uri(_address + $"/geo/countries?limit=100&namePrefix={nameCountryPrefix}");
+            _request.RequestUri = new Uri(_address + $"/geo/cities?limit=10&countryIds={CountryWikiID}&namePrefix={namePrefix}");
             var response = await _client.SendAsync(_request);
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<Country>(content);
-            if (result.Data.Count != 0)
-            {             
-                _requestClone.RequestUri = new Uri(_address + $"/geo/cities?limit=100&countryIds={result.Data.FirstOrDefault().WikiDataId}&namePrefix={namePrefix}&types=CITY");
-                var response1 = await _client.SendAsync(_requestClone);
-                response1.EnsureSuccessStatusCode();
-                var content1 = await response1.Content.ReadAsStringAsync();
-                var result1 = JsonConvert.DeserializeObject<City>(content1);
-                return result1;
-            }
-            return null;
+            var result = JsonConvert.DeserializeObject<City>(content);
+            return result;
         }
 
         /// <summary>
@@ -128,10 +109,9 @@ namespace UrbanAreasProject.Clients
             string location = $"+{latitude}+{longitude}";
             _request.RequestUri = new Uri(_address + $"/geo/locations/{location}/nearbyCities?radius=10&types=CITY");
             var response = await _client.SendAsync(_request);
-            //response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<City>(content);
-            if (result.Data!= null)
+            if (result.Data != null)
                 return result;
             return null;
         }
